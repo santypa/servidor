@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "imagenes",
+  "info": {
+    "name": "imagenes",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "img": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "categorias": {
+      "via": "imagenes",
+      "collection": "categoria",
+      "dominant": true
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "collection": "user",
+      "via": "imagenes",
+      "dominant": true
+    }
+  }
+}

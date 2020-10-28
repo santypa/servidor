@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "usuarios",
+  "info": {
+    "name": "usuario",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nombre": {
+      "type": "text",
+      "required": true
+    },
+    "telefono": {
+      "type": "string"
+    },
+    "direccion": {
+      "type": "text"
+    },
+    "empresa": {
+      "type": "string"
+    },
+    "imagen": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "correo": {
+      "type": "email",
+      "required": true
+    },
+    "clave": {
+      "type": "password",
+      "required": true
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "role",
+      "via": "usuario"
+    }
+  }
+}
